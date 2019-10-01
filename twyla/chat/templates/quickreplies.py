@@ -5,6 +5,8 @@ from typing import List
 @dataclass
 class QuickReply:
     title: str
+    payload: str
+    content_type: str = "text"
 
 
 @dataclass
