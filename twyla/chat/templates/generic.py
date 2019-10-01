@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
-from typing import List, Union
-from twyla.chat.templates.buttons import Button, PostBackButton, UrlButton
+from typing import List
+
+from twyla.chat.templates.buttons import ButtonTypes
 
 
 @dataclass
@@ -16,9 +17,9 @@ class GenericElement:
     title: str
     image_url: str
     default_action: GenericElementDefaultAction
-    buttons: List[Button] = field(default_factory=list)
+    buttons: List[ButtonTypes] = field(default_factory=list)
 
-    def add(self, *buttons: Union[PostBackButton, UrlButton]) -> None:
+    def add(self, *buttons: ButtonTypes) -> None:
         """
         Add a button
         :param buttons:
