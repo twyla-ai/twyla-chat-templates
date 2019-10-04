@@ -35,7 +35,7 @@ class ButtonsPayload:
         Add a button
         :param buttons:
         """
-        assert len(self.buttons) + len(buttons) <= 3, "Maximum 3 buttons suppoerted"
+        assert len(self.buttons) + len(buttons) <= 3, "Maximum 3 buttons supported"
         self.buttons.extend(buttons)
 
 
@@ -43,8 +43,8 @@ class ButtonsPayload:
 class Buttons:
     text: InitVar[str]
     payload: ButtonsPayload = field(default=None, init=False)
-    type: str = "template"
-    template_type: str = "fbmessenger.button_sub_template"
+    type: str = field(default="template", init=False)
+    template_type: str = field(default="fbmessenger.button_sub_template", init=False)
 
     def __post_init__(self, text):
         self.payload = ButtonsPayload(text=text)

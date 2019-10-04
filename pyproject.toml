@@ -22,6 +22,9 @@ exclude = '''
 [tool.poetry]
 name = "twyla-chat-templates"
 version = "0.1.0-dev"
+packages = [
+    { include = "twyla" },
+]
 description = "A collection of Twyla chat message templates"
 authors = [
     "Twyla Engineering <software@twyla.ai>"
