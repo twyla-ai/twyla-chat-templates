@@ -1,13 +1,13 @@
-import pytest
 from dataclasses import asdict
 
+import pytest
+
 from twyla.chat.templates.buttons import PostBackButton, UrlButton
-from twyla.chat.templates.carousel import CarouselTemplate
-from twyla.chat.templates.generic import GenericElement
+from twyla.chat.templates.generic import GenericElement, GenericTemplate
 
 
 @pytest.fixture
-def carousel_template():
+def generic_template():
     template = {
         "template_type": "fbmessenger.generic",
         "type": "template",
@@ -55,36 +55,13 @@ def carousel_template():
                         },
                     ],
                 },
-                {
-                    "title": "Brownie",
-                    "image_url": "https://brownie.com/image.jpg",
-                    "subtitle": "Chocolate Brownie",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://chocolate.com",
-                        "messenger_extensions": False,
-                        "webview_height_ratio": "tall",
-                    },
-                    "buttons": [
-                        {
-                            "title": "I like Brownies",
-                            "payload": "x_I_like_Brownies_x",
-                            "type": "postback",
-                        },
-                        {
-                            "title": "Brownies are good",
-                            "url": "https://brow-nie.io",
-                            "type": "web_url",
-                        },
-                    ],
-                },
             ],
         },
     }
     return template
 
 
-def test_carousel_template(carousel_template):
+def test_generic_template(generic_template):
 
     e1 = GenericElement(
         title="Cheesecake",
@@ -109,15 +86,5 @@ def test_carousel_template(carousel_template):
             UrlButton(title="Apple Pie is good", url="https://apple-pie.io"),
         ],
     )
-    e3 = GenericElement(
-        title="Brownie",
-        subtitle="Chocolate Brownie",
-        image_url="https://brownie.com/image.jpg",
-        action_url="https://chocolate.com",
-        buttons=[
-            PostBackButton(title="I like Brownies", payload="x_I_like_Brownies_x"),
-            UrlButton(title="Brownies are good", url="https://brow-nie.io"),
-        ],
-    )
-    c = CarouselTemplate(elements=[e1, e2, e3])
-    assert asdict(c) == carousel_template
+    t = GenericTemplate(elements=[e1, e2])
+    assert asdict(t) == generic_template

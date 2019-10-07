@@ -12,13 +12,13 @@ class Button:
 @dataclass
 class PostBackButton(Button):
     payload: str
-    type: str = "postback"
+    type: str = field(default="postback", init=False)
 
 
 @dataclass
 class UrlButton(Button):
     url: str
-    type: str = "web_url"
+    type: str = field(default="web_url", init=False)
 
 
 ButtonTypes = Union[PostBackButton, UrlButton]
@@ -28,7 +28,7 @@ ButtonTypes = Union[PostBackButton, UrlButton]
 class ButtonsPayload:
     text: str
     buttons: List[Button] = field(default_factory=list)
-    template_type: str = "button"
+    template_type: str = field(default="button", init=False)
 
     def add(self, *buttons: ButtonTypes) -> None:
         """
