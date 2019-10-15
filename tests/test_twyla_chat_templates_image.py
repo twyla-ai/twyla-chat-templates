@@ -1,5 +1,4 @@
 import pytest
-from dataclasses import asdict
 
 from twyla.chat.templates.image import ImageTemplate
 
@@ -15,5 +14,5 @@ def image_template():
 
 
 def test_image_template(image_template):
-    i = ImageTemplate(url="https://pictures.com/picture.jpg")
-    assert asdict(i) == image_template
+    i = ImageTemplate(url="https://pictures.com/picture.jpg").asdict()
+    assert i == image_template

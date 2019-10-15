@@ -1,5 +1,7 @@
 from dataclasses import dataclass, field, InitVar
 
+from twyla.chat.templates import BaseClass
+
 
 @dataclass
 class ImagePayload:
@@ -8,7 +10,7 @@ class ImagePayload:
 
 
 @dataclass
-class ImageTemplate:
+class ImageTemplate(BaseClass):
     payload: ImagePayload = field(default=None, init=False)
     url: InitVar[str] = field(default=None)
     is_reusable: InitVar[bool] = field(default=True)

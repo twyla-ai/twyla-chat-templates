@@ -120,4 +120,4 @@ def test_carousel_template(carousel_template):
         ],
     )
     c = CarouselTemplate(elements=[e1, e2, e3])
-    assert asdict(c) == carousel_template
+    assert c.asdict() == carousel_template

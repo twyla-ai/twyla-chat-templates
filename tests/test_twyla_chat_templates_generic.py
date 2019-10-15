@@ -87,4 +87,4 @@ def test_generic_template(generic_template):
         ],
     )
     t = GenericTemplate(elements=[e1, e2])
-    assert asdict(t) == generic_template
+    assert t.asdict() == generic_template

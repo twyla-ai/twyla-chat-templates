@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import List
 
+from twyla.chat.templates import BaseClass
+
 
 @dataclass
 class QuickReply:
@@ -10,7 +12,7 @@ class QuickReply:
 
 
 @dataclass
-class QuickReplies:
+class QuickReplies(BaseClass):
     text: str
     quick_replies: List[QuickReply] = field(default_factory=list)
     template_type: str = "fbmessenger.quick_reply"

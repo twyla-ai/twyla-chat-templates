@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field, InitVar
 from typing import List, Optional
 
+from twyla.chat.templates import BaseClass
 from twyla.chat.templates.buttons import ButtonTypes
 
 __all__ = ["GenericElement", "GenericTemplate"]
@@ -56,7 +57,7 @@ class GenericPayload:
 
 
 @dataclass
-class GenericTemplate:
+class GenericTemplate(BaseClass):
     payload: GenericPayload = field(default_factory=GenericPayload, init=False)
     template_type: str = field(default="fbmessenger.generic", init=False)
     type: str = field(default="template", init=False)

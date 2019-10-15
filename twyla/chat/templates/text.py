@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 
+from twyla.chat.templates import BaseClass
+
 
 @dataclass
-class TextTemplate:
+class TextTemplate(BaseClass):
     payload: str
