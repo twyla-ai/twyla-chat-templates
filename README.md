@@ -1,3 +1,9 @@
+[![image](https://img.shields.io/pypi/v/twyla-chat-templates.svg)](https://pypi.org/project/twyla-chat-templates/)
+[![image](https://img.shields.io/pypi/l/twyla-chat-templates.svg)](https://pypi.org/project/twyla-chat-templates/)
+[![image](https://img.shields.io/pypi/pyversions/twyla-chat-templates.svg)](https://pypi.org/project/twyla-chat-templates/)
+[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![](https://github.com/twyla-ai/twyla-chat-templates/workflows/Main%20Workflow/badge.svg)](https://github.com/twyla-ai/twyla-chat-templates/actions)
+
 # Twyla Chat Templates
 A collection of Twyla chat message templates
 
