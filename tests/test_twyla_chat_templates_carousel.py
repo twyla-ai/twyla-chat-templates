@@ -1,5 +1,4 @@
 import pytest
-from dataclasses import asdict
 
 from twyla.chat.templates.buttons import PostBackButton, UrlButton
 from twyla.chat.templates.carousel import CarouselTemplate

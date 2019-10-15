@@ -1,14 +1,14 @@
 from dataclasses import dataclass, field, InitVar
 from typing import List, Optional
 
-from twyla.chat.templates import BaseClass
+from twyla.chat.templates.base import ChatTemplate
 from twyla.chat.templates.buttons import ButtonTypes
 
 __all__ = ["GenericElement", "GenericTemplate"]
 
 
 @dataclass
-class GenericElementDefaultAction:
+class GenericElementDefaultAction(ChatTemplate):
     pass
 
 
@@ -21,7 +21,7 @@ class GenericWebUrlAction(GenericElementDefaultAction):
 
 
 @dataclass
-class GenericElement:
+class GenericElement(ChatTemplate):
     title: str
     subtitle: Optional[str] = field(default=None)
     image_url: Optional[str] = field(default=None)
@@ -43,7 +43,7 @@ class GenericElement:
 
 
 @dataclass
-class GenericPayload:
+class GenericPayload(ChatTemplate):
     template_type: str = "generic"
     elements: List[GenericElement] = field(default_factory=list)
 
@@ -57,7 +57,7 @@ class GenericPayload:
 
 
 @dataclass
-class GenericTemplate(BaseClass):
+class GenericTemplate(ChatTemplate):
     payload: GenericPayload = field(default_factory=GenericPayload, init=False)
     template_type: str = field(default="fbmessenger.generic", init=False)
     type: str = field(default="template", init=False)

@@ -1,5 +1,3 @@
-from dataclasses import asdict
-
 import pytest
 
 from twyla.chat.templates.quickreplies import QuickReplies, QuickReply
