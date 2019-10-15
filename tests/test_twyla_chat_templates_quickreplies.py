@@ -1,5 +1,3 @@
-from dataclasses import asdict
-
 import pytest
 
 from twyla.chat.templates.quickreplies import QuickReplies, QuickReply
@@ -22,4 +20,4 @@ def test_quick_replies(quick_replies_template):
     quick_replies = QuickReplies(text="Which kind of chocolate do you prefer?")
     quick_replies.add(QuickReply(title="Dark", payload="dark_chocolate"))
     quick_replies.add(QuickReply(title="Milk", payload="milk_chocolate"))
-    assert asdict(quick_replies) == quick_replies_template
+    assert quick_replies.asdict() == quick_replies_template

@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field, InitVar
 from typing import List, Union
 
+from twyla.chat.templates.base import ChatTemplate
+
 __all__ = ["PostBackButton", "UrlButton", "Buttons", "ButtonTypes"]
 
 
@@ -40,7 +42,7 @@ class ButtonsPayload:
 
 
 @dataclass
-class Buttons:
+class Buttons(ChatTemplate):
     text: InitVar[str]
     payload: ButtonsPayload = field(default=None, init=False)
     type: str = field(default="template", init=False)

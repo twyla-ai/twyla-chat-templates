@@ -1,5 +1,3 @@
-from dataclasses import asdict
-
 import pytest
 
 from twyla.chat.templates.text import TextTemplate
@@ -13,4 +11,4 @@ def text_template():
 
 def test_text_template(text_template):
     i = TextTemplate("This is just a string")
-    assert asdict(i) == text_template
+    assert i.asdict() == text_template

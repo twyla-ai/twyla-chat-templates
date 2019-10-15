@@ -1,5 +1,3 @@
-from dataclasses import asdict
-
 import pytest
 
 from twyla.chat.templates.buttons import Buttons, PostBackButton, UrlButton
@@ -32,4 +30,4 @@ def test_button_template(button_template):
         PostBackButton(title="Margherita", payload="x_Margherita_oaWVAeasEK_x"),
         UrlButton(title="Hawaii", url="https://google.com"),
     )
-    assert asdict(buttons) == button_template
+    assert buttons.asdict() == button_template
